@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row mt-3">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.short_link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-4">
+            {% if is_user_liked %}
+                <a href="{% url 'react' video.id "like" %}"><input class="btn-success" type="button" value="Liked"></a>
+            {% else %}
+                <a href="{% url 'react' video.id "like" %}"><input type="button" value="Like"></a>
+            {% endif %}
+
+            {% if is_user_disliked %}
+                <a href="{% url 'react' video.id "dislike" %}"><input class="btn-danger" type="button" value="Disliked"></a>
+            {% else %}
+                <a href="{% url 'react' video.id "dislike" %}"><input type="button" value="Dislike"></a>
+            {% endif %}
+        </div>
+        <div class="col-sm-2 offset-1">
+            <a id="details" href=""><input class="btn-info" type="button" value="Details"></a>
+        </div>
+    </div>
+    <div class="row" id="detail_section" style="display:none">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h5>Uploaded by: {{ uploaded_by }}</h5>
+            <span><b>Total views:</b> {{ views }}</span><br>
+            <span><b>Likes</b>({{ likes.count }})</span>
+            <p>
+                {% for like in likes %}
+                    {{ like }}
+                {% endfor %}
+            </p>
+            <span><b>Dislikes</b>({{ dislikes.count }})</span>
+            <p>
+                {% for dislike in dislikes %}
+                {{ dislike }}
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+<script>
+    $(document).ready(function(){
+        $("#details").click(function(){
+            event.preventDefault();
+            $('#detail_section').toggle();
+        });
+    });
+</script>
+{% endblock script %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="row">
+        {% for video in videos %}
+            <div class="col-sm-4 py-3">
+                <div class="card small hoverable">
+                    <div class="card-image">
+                        <a href="{{ video.get_absolute_url }}"><img class="card-img-top" src="{{ video.thumbnail }}" alt="Card image cap"></a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+{% endblock content %}
