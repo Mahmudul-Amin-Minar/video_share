@@ -7,13 +7,22 @@ Anyone can log in/signup, up and log out in-app using email/pass. After login th
 
 He can also view the videos he uploaded (added).
 
+##Homepage
 
 ![Home Page](https://github.com/Mahmudul-Amin-Minar/video_share/blob/main/screenshot/homepage.PNG)
 
+##Login Page
+
 ![Login](https://github.com/Mahmudul-Amin-Minar/video_share/blob/main/screenshot/login.PNG)
+
+##Register
 
 ![Register](https://github.com/Mahmudul-Amin-Minar/video_share/blob/main/screenshot/register.PNG)
 
+##User Dashboard
+
 ![Dashboard](https://github.com/Mahmudul-Amin-Minar/video_share/blob/main/screenshot/dashboard.PNG)
+
+##Video Details Page
 
 ![Video Details](https://github.com/Mahmudul-Amin-Minar/video_share/blob/main/screenshot/video_details_page.PNG)
